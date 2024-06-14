@@ -25,7 +25,7 @@ pipeline {
 
 	stage('Push Image'){
 		steps {
-			sh 'docker push -t priya26s/demosite:$BUILD_NUMBER'
+			sh 'docker push . -t priya26s/demosite:$BUILD_NUMBER'
 		}
         }
 
