@@ -15,14 +15,12 @@ pipeline {
 		steps {
 			sh 'docker build -t priya26s/demosite:${BUILD_NUMBER} .'
 		}
-	
         }	
 
 	stage('Login to Docker Hub'){
 		steps {
 			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 		}
-	
         }
 
 	stage('Push Image'){
@@ -32,12 +30,12 @@ pipeline {
         }
 
 	stage('Building Application'){
-		    steps{
-			    sh '''
+		steps{
+		        sh '''
                         docker stop demosite_ctr
 			docker run --rm -d -p 3000:3000 --name demosite_ctr priya26s/demosite:$BUILD_NUMBER
                     '''
-		    }
-		    
-   }	
+		}   
+        }	
+    }
 }
