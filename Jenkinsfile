@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+	    DOCKERHUB_CREDENTIALS = credentials('jk-dh-tk')
+    }
 	
     stages {
         stage('SCM Checkout') {
@@ -14,5 +17,12 @@ pipeline {
 		}
 	
         }	
+
+	stage('Login to Docker Hub'){
+		steps {
+			sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		}
+	
+        }
    }
 }
