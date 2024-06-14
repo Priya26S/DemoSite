@@ -9,7 +9,6 @@ pipeline {
         }
 
 	stage('Build Docker Image'){
-		echo "Building Docker Image"
 		steps {
 			sh 'docker build -t priya26s/webapp:${BUILD_NUMBER} .'
 		}
