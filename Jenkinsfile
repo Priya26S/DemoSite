@@ -10,7 +10,7 @@ pipeline {
 
 	stage('Build Docker Image'){
 		steps {
-			sh 'docker build -t priya26s/webapp:${BUILD_NUMBER} .'
+			sh 'docker build -t priya26s/demosite:${BUILD_NUMBER} .'
 		}
 	
         }	
