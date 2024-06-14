@@ -25,7 +25,7 @@ pipeline {
 
 	stage('Push Image'){
 		steps {
-			sh 'docker push ps2698/demosite:$BUILD_NUMBER'
+			sh 'podman push ps2698/demosite:$BUILD_NUMBER'
 		}
         }
 
@@ -33,7 +33,7 @@ pipeline {
 		steps{
 		        sh '''
                         docker stop demosite_ctr
-			docker run --rm -d -p 3000:3000 --name demosite_ctr priya26s/demosite:$BUILD_NUMBER
+			docker run --rm -d -p 3000:3000 --name demosite_ctr ps2698/demosite:$BUILD_NUMBER
                     '''
 		}   
         }	
