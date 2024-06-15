@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
 	    DOCKERHUB_CREDENTIALS = credentials('jk-dhh-tk')
+	    DOCKER_REGISTRY = "ps2698/demosite"
     }
 	
     stages {
@@ -26,7 +27,7 @@ pipeline {
 	stage('Push Image'){
 		steps{
 			script{
-				docker.withRegistry("ps2698/demosite", 'jk-dhh-tk') 
+				docker.withRegistry("${DOCKER_REGISTRY}", 'jk-dhh-tk') 
 			}
 			sh 'docker push ps2698/demosite:$BUILD_NUMBER'
 		}
