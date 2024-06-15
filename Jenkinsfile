@@ -25,14 +25,7 @@ pipeline {
 
 	stage('Push Image'){
 		steps{
-			script {
-                    // Push Docker image to Docker Hub
-                    docker.withRegistry('https://index.docker.io/latest/', 'jk-dhh-tk')') {
-                        sh 'docker push ps2698/demosite:$BUILD_NUMBER'
-                    }
-
-			
-			//sh 'docker push ps2698/demosite:$BUILD_NUMBER'
+			sh 'docker push ps2698/demosite:$BUILD_NUMBER'
 		}
         }
 
