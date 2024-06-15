@@ -19,7 +19,10 @@ pipeline {
 
 	stage('Login to Docker Hub'){
 		steps {
-			docker.withRegistry('https://registry.hub.docker.com', 'jk-dh-tk')
+			script
+			{
+				docker.withRegistry('https://registry.hub.docker.com', 'jk-dh-tk')
+			}
 			//sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 		}
         }
