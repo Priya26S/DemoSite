@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-	    DOCKERHUB_CREDENTIALS = credentials('jk-dh-tk')
+	    //DOCKERHUB_CREDENTIALS = credentials('jk-dh-tk')
     }
 	
     stages {
