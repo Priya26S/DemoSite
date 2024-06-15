@@ -1,4 +1,5 @@
-FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
+FROM python:3.9
+WORKDIR /html
+COPY index.html
 EXPOSE 3000
-
+CMD python -m http.server 3000
