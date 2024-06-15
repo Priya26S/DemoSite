@@ -13,7 +13,7 @@ pipeline {
 
 	stage('Build Docker Image'){
 		steps {
-			sh 'docker build -t ps2698/demosite:${BUILD_NUMBER} .'
+			 sh 'docker build -t ps2698/demosite:${BUILD_NUMBER} .'
 		}
         }	
 
@@ -25,7 +25,14 @@ pipeline {
 
 	stage('Push Image'){
 		steps{
-			sh 'docker push ps2698/demosite:$BUILD_NUMBER'
+			script {
+                    // Push Docker image to Docker Hub
+                    docker.withRegistry('https://index.docker.io/latest/', 'jk-dhh-tk')') {
+                        sh 'docker push ps2698/demosite:$BUILD_NUMBER'
+                    }
+
+			
+			//sh 'docker push ps2698/demosite:$BUILD_NUMBER'
 		}
         }
 
