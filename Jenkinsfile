@@ -26,7 +26,7 @@ pipeline {
 	stage('Push Image'){
 		steps{
 			script{
-				docker.withRegistry("https://docker.io", 'jk-dhh-tk') 
+				docker.withRegistry("docker.io", 'jk-dhh-tk') 
 			}
 			sh 'docker push ps2698/demosite:$BUILD_NUMBER'
 		}
