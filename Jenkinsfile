@@ -32,8 +32,8 @@ pipeline {
 	stage('Building Application'){
 		steps{
 		        sh '''
-                        docker stop demosite_ctr
-			docker run --rm -d -p 3000:3000 --name demosite_ctr ps2698/demosite:$BUILD_NUMBER
+                        docker stop demosite
+			docker run --rm -d -p 3000:3000 --name demosite ps2698/demosite:$BUILD_NUMBER
                     '''
 		}   
         }	
