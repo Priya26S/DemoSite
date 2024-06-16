@@ -150,6 +150,10 @@
             loadPosts();
         }
 
+        setTimeout(function() {
+            location.reload();
+        }, 5000); 
+    
         // Load posts on page load
         document.addEventListener('DOMContentLoaded', function () {
             loadPosts();
